@@ -9,4 +9,4 @@ handlers:
 - url: /raphael
   static_dir: raphael
 - url: /.*
-  script: helloworld.py
+  script: index.py
