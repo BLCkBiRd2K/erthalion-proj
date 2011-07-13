@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Osmosis</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script src="raphael/raphael-min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="raphael/osmosis.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24190660-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div id="count" style="color:#FFFFFF"></div>
+	<div id="tips" class="tips">
+	Кликаем мышью, чтобы влить в себя шары с меньшим радиусом.<br/>Чем больше кликов, тем меньше радиус ГГ.<br/>Связанные шары сложнее поглотить)
+	</div>
+	<div id="raph" class="raph"></div>
+	<a id="restart_loose" href="http://localhost:8080" style="position:absolute;top:50%;left:50%; margin-left:-100px;margin-top:-2px;">You've been destroyed! Restart</a>
+	<a id="restart_win" href="http://localhost:8080" style="position:absolute;top:50%;left:50%; margin-left:-50px;margin-top:-2px;">You win! Restart</a>
+	<a href="http://www.appin8.com/blog-post/app-in-8-osmosis-a-raphael-js-web-game/">Osmosis</a>
+</body>
+</html>

@@ -1,0 +1,12 @@
+application: 9erthalion6
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /css
+  static_dir: css
+- url: /raphael
+  static_dir: raphael
+- url: /.*
+  script: helloworld.py
