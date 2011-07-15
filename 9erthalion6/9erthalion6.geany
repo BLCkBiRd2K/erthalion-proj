@@ -1,0 +1,36 @@
+
+[indentation]
+indent_width=4
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=false
+indent_mode=2
+
+[project]
+name=9erthalion6
+base_path=/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6
+description=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=0
+FILE_NAME_0=140;Python;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/index.py;0;4
+FILE_NAME_1=0;YAML;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/app.yaml;0;4
+FILE_NAME_2=0;HTML;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/index.html;0;4
+FILE_NAME_3=0;Javascript;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/raphael/osmosis.js;0;4
+FILE_NAME_4=0;Javascript;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/raphael/raphael-min.js;0;4
+FILE_NAME_5=0;CSS;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/css/main.css;0;4
+
+[build-menu]
+EX_00_LB=_Выполнить
+EX_00_CM=google-chrome http://localhost:8080
+EX_00_WD=
+NF_00_LB=_Сделать
+NF_00_CM=make
+NF_00_WD=
+EX_01_LB=devapp
+EX_01_CM=python ~/programs/google_appengine/dev_appserver.py %d
+EX_01_WD=
