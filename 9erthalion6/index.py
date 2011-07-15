@@ -12,10 +12,157 @@ class Greeting(db.Model):
     content = db.StringProperty(multiline=True)
     date = db.DateTimeProperty(auto_now_add=True)
 
+class GHQuery(db.Model):
+	query = db.StringProperty()
+	type = db.StringProperty()
+
+class GetGH(webapp.RequestHandler):
+	def get(self):
+		temp = db.GqlQuery("SELECT * FROM GHQuery WHERE type = :1","error")
+		for q in temp:
+			self.response.out.write(q.query)
+
+class GHDB(webapp.RequestHandler):
+	def get(self):
+		try:
+			db=open("db/devices_and_cameras.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "devices_and_cameras"
+			hack.put()
+
+		try:
+			db=open("db/error.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "error"
+			hack.put()
+
+		try:
+			db=open("db/interesting_directories.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "interesting_directories"
+			hack.put()
+
+		try:
+			db=open("db/interesting_info.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "interesting_info"
+			hack.put()
+
+		try:
+			db=open("db/login_pages.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "login_pages"
+			hack.put()
+
+		try:
+			db=open("db/misc.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "mics"
+			hack.put()
+
+		try:
+			db=open("db/network_or_vulnerability_data.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "network_or_vulnerability_data"
+			hack.put()
+
+		try:
+			db=open("db/passwords_and_usernames.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "passwords_and_usernames"
+			hack.put()
+
+		try:
+			db=open("db/sql_injection_list.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "sql_injection_list"
+			hack.put()
+
+		try:
+			db=open("db/vulnerabilities.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "vulnerabilities"
+			hack.put()
+
+		try:
+			db=open("db/vulnerable_systems.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "vulnerable_systems"
+			hack.put()
+
+		try:
+			db=open("db/webserver_banners.txt","r")
+			db = [x.strip() for x in db]
+		except:
+			db = []
+		for q in db:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = "webserver_banners"
+			hack.put()
+
 class Raphael(webapp.RequestHandler):
     def get(self):
-        path = os.path.join(os.path.dirname(__file__), 'raphael.html',{})
-        self.response.out.write(template.render(path))
+        template_values = {
+          }
+    
+        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        self.response.out.write(template.render(path, template_values))
          
 
 class MainPage(webapp.RequestHandler):
@@ -53,7 +200,9 @@ class GuestBook(webapp.RequestHandler):
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
                                       ('/sign', GuestBook),
-                                      ('/raphael', Raphael)],
+                                      ('/raphael', Raphael),
+                                      ('/ghdb', GHDB),
+                                      ('/getgh', GetGH)],
                                      debug=True)
 
 def main():
