@@ -10,6 +10,8 @@ handlers:
   static_dir: js
 - url: /music
   static_dir: music
+- url: /images
+  static_dir: images
 - url: /raphael
   static_dir: raphael
 - url: /.*
