@@ -3,7 +3,7 @@ jQuery(function ($) {
 	if(!Modernizr.canvas) {
 		jQuery('#tweet').html('<h1>oh noez - please get yourself a sophisticated browser like <a href="http://getfirefox.com">FireFox 3.5</a>, <a href="http://apple.com/safari">Safari</a>, <a href="http://www.opera.com/">Opera</a> or <a href="http://google.com/chrome">Chrome</a> </h1>');
 	} else {
-		var numParticles = 50;
+		var numParticles = 25;
 		var i;
 		var el = document.getElementById("theapt");	
 		var width = window.innerWidth;
@@ -92,8 +92,8 @@ jQuery(function ($) {
 					var p = pixels[i];
 					if(p.flightMode != 2) {
 						p.toSize = Math.random()*4+1;
-						p.toX = width/2 + Math.cos(i*3.6*Math.PI/90) * r;
-						p.toY = height/2 + Math.sin(i*3.6*Math.PI/90) * r;
+						p.toX = width/2 + Math.cos(i*3.6*Math.PI/45) * r;
+						p.toY = height/2 + Math.sin(i*3.6*Math.PI/45) * r;
 						impulsX = 0;
 						impulsY = 0;
 						p.speedX = (Math.random() - 0.5);
@@ -174,12 +174,12 @@ jQuery(function ($) {
 						}
 
 						// seek mouse
-						if(pixels[i].flightMode == 1) {
+						/*if(pixels[i].flightMode == 1) {
 							pixels[i].toX = mx + Math.cos((pixels[i].degree + pixels[i].frame ) % 360 * Math.PI /180)*c;
 							pixels[i].toY = my + Math.sin((pixels[i].degree + pixels[i].frame ) % 360 * Math.PI /180)*c;
 							pixels[i].frame += pixels[i].degreeSpeed;
 							pixels[i].degreeSpeed += 0.01;
-						}
+						}*/
 
 						if(pixels[i].flightMode != 2) {
 							// add impuls
@@ -233,10 +233,10 @@ jQuery(function ($) {
 			startedAt = new Date();
 		}
 
-		p.mouseMoved = function(){
+		/*p.mouseMoved = function(){
 	      mx = p.mouseX;
 	      my = p.mouseY;
-	    }
+	    }*/
 
 		p.draw=function(){
 		  if(window.cps_pause == false) {

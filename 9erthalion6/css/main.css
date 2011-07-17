@@ -3,8 +3,9 @@
 	margin:0 auto;
 	color: #FFFFFF;
 	height: 100%;
-	position:absolute;
+	position:absolute ! important;
 	width: 100%;
+	z-index:1001 ! important;
 }
 
 body {
