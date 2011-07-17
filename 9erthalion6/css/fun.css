@@ -1,0 +1,54 @@
+body {
+	background: #000;
+	color: #aaa;
+	font-family: Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+a {
+	text-decoration:none;
+}
+
+#theapt {
+}
+#stuff {
+	postion:absolute;
+}
+#tweet {
+	font-family:Helvetica, Arial;
+	position:absolute;
+			
+	top:400px;
+	left:260px;
+	
+	width:640px;
+}
+
+#tweet h1 {
+	display:block;
+	font-family:Helvetica, Arial;
+	font-size:40px;
+	font-weight:bold;
+	color:#fff;
+	margin:0 0 10px 0;
+	padding:0;
+}
+
+#tweet strong {
+	display:block;
+	font-size:16px;
+}
+
+#about {
+	font-size:11px;
+	position:absolute;
+	font-weight:normal;		
+	bottom:20px;
+	left:20px;
+}
+
+#about a {
+	color: #59cdec;
+}

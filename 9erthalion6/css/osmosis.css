@@ -1,0 +1,24 @@
+body {
+  font-family: Arial;
+  background-color: #000000;
+  text-shadow: black 2px 2px 4px, white 0 0 1em;
+  text-align: center;
+}
+
+.tips
+{
+	text-align: center;
+	color: green;
+	margin-bottom: 20px;
+}
+
+.raph
+{
+	background-color: #000; 
+	width:800px; 
+	height:600px; 
+	text-shadow:none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
