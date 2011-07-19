@@ -43,15 +43,42 @@ class GHDB(webapp.RequestHandler):
 	def get(self):
 		for type in types:
 			try:
-				db=open("db/"+type+".txt","r")
-				db = [x.strip() for x in db]
-			except:
-				db = []
-			for q in db:
+				dbH=open("db/"+type+".txt","r")
+				dbH = [x.strip() for x in dbH]
+				self.response.out.write("<p>"+type+"</p>")
+			except IOError as (errno, strerror):
+				dbH = []
+				self.response.out.write("<p>ooops...something is wrong</p><p>I/O error({0}): {1}</p>".format(errno, strerror))
+			for q in dbH:
 				hack = GHQuery()
 				hack.query = q.decode('utf-8')
 				hack.type = type
 				hack.put()
+
+class GHDBbyType(webapp.RequestHandler):
+	def get(self):
+		type = self.request.get("type","")
+		try:
+			dbH=open("db/"+type+".txt","r")
+			dbH = [x.strip() for x in dbH]
+		except:
+			dbH = []
+		for q in dbH:
+			hack = GHQuery()
+			hack.query = q.decode('utf-8')
+			hack.type = type
+			hack.put()
+
+class DelbyType(webapp.RequestHandler):
+	def get(self):
+		type = self.request.get("type","")
+		requests = db.GqlQuery("SELECT * FROM GHQuery WHERE type=:1",type)
+		db.delete(requests)
+
+class Del(webapp.RequestHandler):
+	def get(self):
+		requests = db.GqlQuery("SELECT * FROM GHQuery")
+		db.delete(requests)
 
 class Osmosis(webapp.RequestHandler):
     def get(self):
@@ -87,7 +114,10 @@ application = webapp.WSGIApplication(
                                       ('/sign', GuestBook),
                                       ('/osmosis', Osmosis),
                                       ('/ghdb', GHDB),
+									  ('/ghdbbytype', GHDBbyType),
+                                      ('/delbytype', DelbyType),
                                       ('/getgh', GetGH),
+                                      ('/del', Del),
                                       ('/gettypes', GetType)],
                                      debug=True)
 
