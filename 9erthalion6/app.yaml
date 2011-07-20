@@ -6,6 +6,15 @@ api_version: 1
 handlers:
 - url: /css
   static_dir: css
+- url: /js
+  static_dir: js
+- url: /music
+  static_dir: music
+- url: /images
+  static_dir: images
+- url: /favicon.ico
+  static_files: /images/favicon.ico
+  upload: /images/favicon.ico 
 - url: /raphael
   static_dir: raphael
 - url: /.*

@@ -1,24 +1,60 @@
-body {
-  font-family: Arial;
-  background-color: #000000;
-  text-shadow: black 2px 2px 4px, white 0 0 1em;
-  text-align: center;
+.main-panel
+{
+	margin:0 auto;
+	color: #FFFFFF;
+	height: 100%;
+	position:absolute ! important;
+	width: 100%;
+	z-index:1001 ! important;
 }
 
-.tips
+body {
+	background: #000;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+#head
 {
 	text-align: center;
-	color: green;
-	margin-bottom: 20px;
 }
 
-.raph
+#links
 {
-	background-color: #000; 
-	width:800px; 
-	height:600px; 
-	text-shadow:none;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
+	float: left;
+	width: 40%;
+}
+
+#news
+{
+	float: right;
+	color: white;
+	width: 40%;
+}
+
+h3 
+{
+	background: #777777;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	text-align: center;
+	text-shadow: white 1px 1px 2px, white 0 0 1em; /* Параметры тени */
+    font-size: 1.5em; /* Размер надписи */
+    font-family: arial;
+}
+
+li 
+{
+	background: #000000;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	text-align: center;
+	font-family: arial;
+	color: #777777;
+}
+
+#osmosis:hover
+{
+	cursor: pointer;
 }

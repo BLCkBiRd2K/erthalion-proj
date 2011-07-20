@@ -1,10 +1,14 @@
+<!DOCTYPE HTML>
 <html>
-<head>
-	<title>Osmosis</title>
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<script src="raphael/raphael-min.js" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script src="raphael/osmosis.js" type="text/javascript"></script>
+	<head>
+		<title>Erthalion's site</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="js/apt18.js?v=1" type="text/javascript"></script> 
+<script src="js/modernizr-2.0.6.js" type="text/javascript"></script> 
+<script src="js/processing.min.js" type="text/javascript"></script> 
+<link rel="stylesheet" type="text/css" href="css/fun.css?v=1" />
+<link rel="stylesheet" type="text/css" href="css/main.css?v=1" />
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -18,15 +22,33 @@
   })();
 
 </script>
+
 </head>
+	
 <body>
-	<div id="count" style="color:#FFFFFF"></div>
-	<div id="tips" class="tips">
-	Кликаем мышью, чтобы влить в себя шары с меньшим радиусом.<br/>Чем больше кликов, тем меньше радиус ГГ.<br/>Связанные шары сложнее поглотить)
+<audio autoplay loop preload>
+	<source src="music/Major-min.mp3" />
+	<source src="music/Major-min.ogg" />
+</audio>
+<div id="main-panel" class="main-panel">
+	<div id="head">
+		<img src="images/title.png"/>
 	</div>
-	<div id="raph" class="raph"></div>
-	<a id="restart_loose" href="http://localhost:8080" style="position:absolute;top:50%;left:50%; margin-left:-100px;margin-top:-2px;">You've been destroyed! Restart</a>
-	<a id="restart_win" href="http://localhost:8080" style="position:absolute;top:50%;left:50%; margin-left:-50px;margin-top:-2px;">You win! Restart</a>
-	<a href="http://www.appin8.com/blog-post/app-in-8-osmosis-a-raphael-js-web-game/">Osmosis</a>
+	<div id="links">
+		<h3>Интересное</h3>
+		<a href="http://9erthalion6.appspot.com/osmosis">
+		<img src="images/osmosis.png" id="osmosis" title="Osmosis - простенькая игра, чтобы убить время"/>
+		</a>
+	</div>
+	<div id="news" class="grad">
+		<h3>Все течет, все изменяется...</h3>
+		<ul>
+			<li>Osmosis перенесен на новое <a href="http://9erthalion6.appspot.com/osmosis">место жительства</a></li>
+		</ul>
+	</div>
+</div>
+<canvas id="theapt" width="100" height="100">
+</canvas> 
 </body>
+
 </html>
