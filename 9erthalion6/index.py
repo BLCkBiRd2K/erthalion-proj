@@ -46,9 +46,8 @@ class GHDB(webapp.RequestHandler):
 				dbH=open("db/"+type+".txt","r")
 				dbH = [x.strip() for x in dbH]
 				self.response.out.write("<p>"+type+"</p>")
-			except IOError as (errno, strerror):
+			except:
 				dbH = []
-				self.response.out.write("<p>ooops...something is wrong</p><p>I/O error({0}): {1}</p>".format(errno, strerror))
 			for q in dbH:
 				hack = GHQuery()
 				hack.query = q.decode('utf-8')
@@ -113,11 +112,11 @@ application = webapp.WSGIApplication(
                                      [('/', MainPage),
                                       ('/sign', GuestBook),
                                       ('/osmosis', Osmosis),
-                                      ('/ghdb', GHDB),
-									  ('/ghdbbytype', GHDBbyType),
-                                      ('/delbytype', DelbyType),
+                                      #('/ghdb', GHDB),
+									  #('/ghdbbytype', GHDBbyType),
+                                      #('/delbytype', DelbyType),
                                       ('/getgh', GetGH),
-                                      ('/del', Del),
+                                      #('/del', Del),
                                       ('/gettypes', GetType)],
                                      debug=True)
 
