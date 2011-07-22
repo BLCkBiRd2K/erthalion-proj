@@ -31,17 +31,17 @@ class GetType(webapp.RequestHandler):
 class GetGH(webapp.RequestHandler):
 	def get(self):
 		type = self.request.get("type","")
-		resp+="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-		resp+="<requests name=\""+type+"\">\n"
+		response="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+		response+="<requests name=\""+type+"\">\n"
 		temp = db.GqlQuery("SELECT * FROM GHQuery WHERE type = :1",type)
 		for q in temp:
-			resp+="<hack type=\"error\">"+q.query+"</hack>\n"
-			
-		resp+="</requests>"
+			response+="<hack type=\"error\">"+q.query+"</hack>\n"
+
+		response+="</requests>"
 		self.response.headers['Content-type'] = 'text/xml'                     
-        self.response.headers['Content-length'] = "%d"%len(resp)               
-        self.response.out.write(rstr)
-        
+		self.response.headers['Content-length'] = len(response)               
+		self.response.out.write(response)
+		
 class GHDB(webapp.RequestHandler):
 	def get(self):
 		for type in types:
