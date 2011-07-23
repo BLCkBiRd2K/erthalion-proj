@@ -35,7 +35,7 @@ class GetGH(webapp.RequestHandler):
 		response+="<requests name=\""+type+"\">\n"
 		temp = db.GqlQuery("SELECT * FROM GHQuery WHERE type = :1",type)
 		for q in temp:
-			response+="<hack type=\"error\">"+q.query+"</hack>\n"
+			response+="<hack type=\""+type+"\">"+q.query+"</hack>\n"
 
 		response+="</requests>"
 		self.response.headers['Content-type'] = 'text/xml'                     
