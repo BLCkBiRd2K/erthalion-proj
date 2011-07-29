@@ -16,7 +16,13 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=1
+FILE_NAME_0=278;YAML;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/app.yaml;0;4
+FILE_NAME_1=1454;HTML;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/index.html;0;4
+FILE_NAME_2=1332;Python;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/index.py;0;4
+FILE_NAME_3=0;CSS;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/css/fun.css;0;4
+FILE_NAME_4=152;CSS;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/css/experiment-pages.css;0;4
+FILE_NAME_5=763;CSS;0;16;1;1;0;/home/erthalion/coding/google_appspot/9erthalion6/erthalion-proj/9erthalion6/css/main.css;0;4
 
 [build-menu]
 EX_00_LB=_Выполнить
