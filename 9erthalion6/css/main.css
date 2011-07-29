@@ -54,7 +54,17 @@ li
 	color: #777777;
 }
 
+#osmosis
+{
+	width: 64px;
+	height: 64px;
+	background: url("../../images/osmosis.png");
+}
+
 #osmosis:hover
 {
+	width: 64px;
+	height: 64px;
 	cursor: pointer;
+	background: url("../../images/osmosis_light.png");
 }
