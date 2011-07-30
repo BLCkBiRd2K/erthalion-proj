@@ -101,7 +101,16 @@ class Osmosis(webapp.RequestHandler):
     
         path = os.path.join(os.path.dirname(__file__), 'osmosis.html')
         self.response.out.write(template.render(path, template_values))
-         
+
+class Commentary(webapp.RequestHandler):
+	def get(self):
+		template_values = {
+		}
+		path = os.path.join(os.path.dirname(__file__), 'comments.html')
+		self.response.out.write(template.render(path, template_values))
+		
+		def post(self):
+			selft.redirect("/comments")
 
 class MainPage(webapp.RequestHandler):
     def get(self):
@@ -115,28 +124,18 @@ class MainPage(webapp.RequestHandler):
 		path = os.path.join(os.path.dirname(__file__), 'index.html')
 		self.response.out.write(template.render(path, template_values))
 
-class GuestBook(webapp.RequestHandler):
-    def post(self):
-        greeting = Greeting()
-        
-        if users.get_current_user():
-            greeting.author=users.get_current_user()
-        
-        greeting.content=self.request.get('content')
-        greeting.put();
-        self.redirect('/')
-        
+
 application = webapp.WSGIApplication(
-                                     [('/', MainPage),
-                                      ('/sign', GuestBook),
-                                      ('/osmosis', Osmosis),
-                                      #('/ghdb', GHDB),
-									  #('/ghdbbytype', GHDBbyType),
-                                      #('/delbytype', DelbyType),
-                                      ('/getgh', GetGH),
-                                      #('/del', Del),
-                                      ('/gettypes', GetType)],
-                                     debug=True)
+									[('/', MainPage),
+									('/osmosis', Osmosis),
+									#('/ghdb', GHDB),
+									#('/ghdbbytype', GHDBbyType),
+									#('/delbytype', DelbyType),
+									('/getgh', GetGH),
+									#('/del', Del),
+									('/gettypes', GetType),
+									('/comments',Commentary)],
+									debug=True)
 
 def main():
     run_wsgi_app(application)

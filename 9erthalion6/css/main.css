@@ -26,6 +26,13 @@ body {
 	width: 40%;
 }
 
+#links a
+{
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 #news
 {
 	float: right;
@@ -70,4 +77,19 @@ li:hover
 	height: 64px;
 	cursor: pointer;
 	background: url("../../images/osmosis_light.png");
+}
+
+#comments
+{
+	width: 64px;
+	height: 64px;
+	background: url("../../images/comments.png");
+}
+
+#comments:hover
+{
+	width: 64px;
+	height: 64px;
+	cursor: pointer;
+	background: url("../../images/comments_light.png");
 }
