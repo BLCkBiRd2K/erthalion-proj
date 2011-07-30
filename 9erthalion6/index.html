@@ -44,9 +44,12 @@
 	</div>
 	<div id="news" class="grad">
 		<h3>Все течет, все изменяется...</h3>
+		{% for new in news %}
 		<ul>
-			<li>Osmosis перенесен на новое <a href="http://9erthalion6.appspot.com/osmosis">место жительства</a></li>
+			<li>{{ new.text }}</li>
+			<!--<li>Osmosis перенесен на новое <a href="http://9erthalion6.appspot.com/osmosis">место жительства</a></li>-->
 		</ul>
+		{% endfor %}		
 	</div>
 </div>
 <canvas id="theapt" width="100" height="100">

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import cgi
 import os
 
@@ -9,11 +10,20 @@ from google.appengine.ext import db
 
 types=["devices_and_cameras","error","interesting_directories","interesting_info","login_pages","misc","network_or_vulnerability_data","passwords_and_usernames","sql_injection_list","vulnerabilities","vulnerable_systems","webserver_banners"]
 
-class Greeting(db.Model):   
-    author = db.UserProperty()
-    content = db.StringProperty(multiline=True)
-    date = db.DateTimeProperty(auto_now_add=True)
+class Users(db.Model):
+	name = db.StringProperty()
+	email = db.UserProperty()
 
+class News(db.Model):
+	name = db.StringProperty()
+	text = db.StringProperty()
+	date = db.DateTimeProperty()
+	
+class Comments(db.Model):
+	user = db.StringProperty()
+	text = db.StringProperty()
+	date = db.DateTimeProperty()
+	
 class GHQuery(db.Model):
 	query = db.StringProperty()
 	type = db.StringProperty()
@@ -93,13 +103,22 @@ class Osmosis(webapp.RequestHandler):
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-    
-        template_values = {
-          }
-    
-        path = os.path.join(os.path.dirname(__file__), 'index.html')
-        self.response.out.write(template.render(path, template_values))
-                        
+		name="osmosis"
+		text="Osmosis перенесен на новое <a href=\"http://9erthalion6.appspot.com/osmosis\">место жительства</a>"
+		osmosis = News(name=unicode(name,"utf-8"),
+						text=unicode(text,"utf-8"))
+		osmosis.put()
+
+		news_query = News.all().order('-date')
+		news = news_query.fetch(10)		
+
+		template_values = {
+			'news':news,
+			}
+
+		path = os.path.join(os.path.dirname(__file__), 'index.html')
+		self.response.out.write(template.render(path, template_values))
+
 class GuestBook(webapp.RequestHandler):
     def post(self):
         greeting = Greeting()
