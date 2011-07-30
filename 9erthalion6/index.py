@@ -30,13 +30,15 @@ class GHQuery(db.Model):
 
 class GetType(webapp.RequestHandler):
 	def get(self):
-		self.response.out.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
-		self.response.out.write("<types>\n")
+		response="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+		response+="<types>\n"
 		for type in types:
-			self.response.out.write("<type name=\""+type+"\">\n")
+			response+="<type name=\""+type+"\"></type>\n"
 
-		self.response.out.write("</types>\n")
-		
+		response+="</types>\n"
+		self.response.headers['Content-type'] = 'text/xml'                     
+		self.response.headers['Content-length'] = len(response)               
+		self.response.out.write(response)
 
 class GetGH(webapp.RequestHandler):
 	def get(self):
@@ -103,12 +105,6 @@ class Osmosis(webapp.RequestHandler):
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-		name="osmosis"
-		text="Osmosis перенесен на новое <a href=\"http://9erthalion6.appspot.com/osmosis\">место жительства</a>"
-		osmosis = News(name=unicode(name,"utf-8"),
-						text=unicode(text,"utf-8"))
-		osmosis.put()
-
 		news_query = News.all().order('-date')
 		news = news_query.fetch(10)		
 
