@@ -9,6 +9,7 @@
 		<meta charset="UTF-8" />		
 		
 		<link rel="stylesheet" type="text/css" href="css/comments.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css?v=1" />
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 		<script type="text/javascript">
 
@@ -27,15 +28,25 @@
 </head>
 	
 <body>
-	<div id="comments"></div>
-	<div id="send" class="send">
-		<form>
-			<p><textarea rows="10" cols="45" name="text"></textarea></p>
+	<div id="comments">
+		<ul>
+		{% for comment in comments %}
+			<li>{{ comment.text|escape }}</li>
+		{% endfor %}		
+		</ul>
+	</div>
+	<div id="send">
+		<form method="post" action="/comments">
+			<p><textarea rows="10" cols="45" name="text" id="textField" class="send ui-widget ui-widget-content ui-corner-all"></textarea></p>
 			<p><input type="submit" value="Send"></p>
 		</form>
+		<div id="smiles">
+		</div>
 	</div>
 </body>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+		<script src="js/comments.js"></script>
+		<script src="js/jquery.emotions.minify.js"></script>
 </html>

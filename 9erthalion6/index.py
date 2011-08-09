@@ -16,12 +16,12 @@ class Users(db.Model):
 
 class News(db.Model):
 	name = db.StringProperty()
-	text = db.StringProperty()
+	text = db.TextProperty()
 	date = db.DateTimeProperty()
 	
 class Comments(db.Model):
 	user = db.StringProperty()
-	text = db.StringProperty()
+	text = db.TextProperty()
 	date = db.DateTimeProperty()
 	
 class GHQuery(db.Model):
@@ -103,14 +103,24 @@ class Osmosis(webapp.RequestHandler):
         self.response.out.write(template.render(path, template_values))
 
 class Commentary(webapp.RequestHandler):
+	def post(self):
+		comment = Comments()
+		comment.text = self.request.get("text")
+		comment.user = "aaa"
+		
+		comment.put()
+		self.redirect("/comments")
+
 	def get(self):
+		comment_query = Comments.all().order('-date')
+		comments = comment_query.fetch(10)
+
 		template_values = {
+			'comments':comments
 		}
+		
 		path = os.path.join(os.path.dirname(__file__), 'comments.html')
 		self.response.out.write(template.render(path, template_values))
-		
-		def post(self):
-			selft.redirect("/comments")
 
 class MainPage(webapp.RequestHandler):
     def get(self):

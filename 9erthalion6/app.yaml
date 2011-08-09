@@ -12,6 +12,8 @@ handlers:
   static_dir: music
 - url: /images
   static_dir: images
+- url: /emotions
+  static_dir: emotions
 - url: /favicon.ico
   static_files: /images/favicon.ico
   upload: /images/favicon.ico 

@@ -43,8 +43,8 @@ body {
 h3 
 {
 	background: #777777;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 	text-align: center;
 	text-shadow: white 1px 1px 2px, white 0 0 1em; /* Параметры тени */
     font-size: 1.5em; /* Размер надписи */
