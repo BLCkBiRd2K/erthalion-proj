@@ -31,16 +31,25 @@
 	<div id="comments">
 		<ul>
 		{% for comment in comments %}
-			<li>{{ comment.text|escape }}</li>
+			<li>
+				<div class="commentText">{{ comment.text|escape }}</div><br/>
+				<div class="commentUser"><i>{{ comment.user|escape }}</i></div>
+			</li>
 		{% endfor %}		
 		</ul>
 	</div>
 	<div id="send">
 		<form method="post" action="/comments">
 			<p><textarea rows="10" cols="45" name="text" id="textField" class="send ui-widget ui-widget-content ui-corner-all"></textarea></p>
-			<p><input type="submit" value="Send"></p>
+			<p><input type="text"  name="name" id="nameField" class="name ui-widget ui-widget-content ui-corner-all" title="Укажите ваше имя"></input></p>
+			<p><input type="submit" value="Send" title="Отправить комментарий"></p>
 		</form>
+		
 		<div id="smiles">
+			<ul>
+			</ul>
+			<div class="slider">
+			</div>
 		</div>
 	</div>
 </body>

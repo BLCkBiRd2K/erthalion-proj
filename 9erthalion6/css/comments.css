@@ -49,7 +49,7 @@ body
 	list-style: none;
 	padding: 40px 0px 40px 0px;
 	width: 100%;
-	white-space: pre-wrap;       /* css-3 */
+	/*white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, начиная с 1999 года */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
@@ -57,17 +57,70 @@ body
     border-bottom: 1px solid #CCCCCC;
 }
 
+
 #smiles
 {
-	float: right;
-	margin-right: -150px;
-	margin-top: -295px;
-	width: 70px;
-	height: 220px;
-	overflow: auto;
+	overflow: hidden;
+	position: relative;
+	padding: 10px;
+	height: 160px;
+	width: 480px;
+	margin-top: -70px;
+	margin-left: 120px
 }
 
-#smiles img:hover
+#smiles UL
+{
+	position: absolute;
+	list-style: none;
+	overflow: none;
+	white-space: nowrap;
+	padding: 0;
+	margin: 0;
+}
+
+#smiles UL LI
+{
+	display: inline;
+}
+
+#smiles UL LI:hover
 {
 	cursor: pointer;
+}
+
+.slider {
+	width: 475px;
+	height: 17px;
+	margin-top: 50px;
+	position: relative;
+}
+
+.slider:focus
+{
+	outline: none;
+}
+
+.ui-slider a {outline:none;}
+
+.name
+{
+	background: #333333 !important;
+	width: 100%;
+	color: #DDDDDD !important;
+	padding: 10px !important;
+}
+
+.name:focus
+{
+	outline: none;
+}
+
+.commentText
+{
+}
+
+.commentUser
+{
+	float: right;
 }

@@ -18,8 +18,8 @@ handlers:
   static_files: /images/favicon.ico
   upload: /images/favicon.ico 
 - url: /sitemap.xml
-  static_files: /sitemap.xml
-  upload: /sitemap.xml 
+  static_files: sitemap.xml
+  upload: sitemap.xml
 - url: /raphael
   static_dir: raphael
 - url: /.*

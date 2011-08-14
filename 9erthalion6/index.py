@@ -106,7 +106,7 @@ class Commentary(webapp.RequestHandler):
 	def post(self):
 		comment = Comments()
 		comment.text = self.request.get("text")
-		comment.user = "aaa"
+		comment.user = self.request.get("name")
 		
 		comment.put()
 		self.redirect("/comments")
