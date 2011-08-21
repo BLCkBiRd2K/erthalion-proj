@@ -134,6 +134,14 @@ class MainPage(webapp.RequestHandler):
 		path = os.path.join(os.path.dirname(__file__), 'index.html')
 		self.response.out.write(template.render(path, template_values))
 
+class Video(webapp.RequestHandler):
+	def get(self):
+		template_values = {
+			}
+
+		path = os.path.join(os.path.dirname(__file__), 'video.html')
+		self.response.out.write(template.render(path, template_values))
+
 
 application = webapp.WSGIApplication(
 									[('/', MainPage),
@@ -144,6 +152,7 @@ application = webapp.WSGIApplication(
 									('/getgh', GetGH),
 									#('/del', Del),
 									('/gettypes', GetType),
+									('/video', Video),
 									('/comments',Commentary)],
 									debug=True)
 

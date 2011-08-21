@@ -1,0 +1,24 @@
+body
+{
+	background: #000000;
+}
+
+#video
+{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-150px;
+	margin-left:-200px;
+}
+
+#video ul
+{
+	padding: 0;
+}
+
+#video iframe
+{
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}

@@ -93,3 +93,17 @@ li:hover
 	cursor: pointer;
 	background: url("../../images/comments_light.png");
 }
+
+#video
+{
+	width: 64px;
+	height: 50px;
+	margin-bottom:10px;
+	background: url("../../images/video.png");
+}
+
+#video:hover
+{
+	cursor: pointer;
+	background: url("../../images/video_light.png");
+}
