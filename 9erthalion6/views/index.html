@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Erthalion's site</title>
+
+		<meta name="description" content="Erthalion's site with HTML5. Here placed google hack database in xml and many others" />
+		<meta name="keywords" content="HTML5,GHDB,google hack database,google hach search,google hack list,google search hack,hack using google" />
+		<meta name="author" content="Erthalion" />
+		<meta charset="UTF-8" />		
+		
+		<link rel="stylesheet" type="text/css" href="css/fun.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="css/main.css?v=1" />
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-24190660-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+</head>
+	
+<body>
+<audio autoplay loop preload>
+	<source src="music/Major-min.mp3" />
+	<source src="music/Major-min.ogg" />
+</audio>
+<div id="main-panel" class="main-panel">
+	<div id="head">
+		<img src="images/title.png"/>
+	</div>
+	<div id="links">
+		<h3>Интересное</h3>
+		<a href="/osmosis" title="Osmosis - простенькая игра, чтобы убить время">
+			<div id="osmosis"><img src="images/osmosis_light.png" style="display:none"></div>
+		</a>
+		<a href="/comments" title="Оставить комментарий">
+			<div id="comments"><img src="images/comments_light.png" style="display:none"></div>
+		</a>
+		<a href="/video" title="Движущиеся картинки">
+			<div id="video"><img src="images/video_light.png" style="display:none"></div>
+		</a>
+	</div>
+	<div id="news" class="grad">
+		<h3>Все течет, все изменяется...</h3>
+		<ul>
+		{% for new in news %}
+			<li>{{ new.text }}</li>
+			<!--<li>Osmosis перенесен на новое <a href="http://9erthalion6.appspot.com/osmosis">место жительства</a></li>-->
+		{% endfor %}		
+		</ul>
+	</div>
+</div>
+<canvas id="theapt" width="100" height="100">
+</canvas> 
+</body>
+
+		<--SCRIPTS SECTION-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+		<script src="js/apt18.js?v=1" type="text/javascript"></script> 
+		<script src="js/modernizr-2.0.6.js" type="text/javascript"></script> 
+		<script src="js/processing.min.js" type="text/javascript"></script> 
+</html>

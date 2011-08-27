@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Erthalion's site</title>
+
+		<meta name="description" content="Some comments for site" />
+		<meta name="keywords" content="fun smiles, comments" />
+		<meta name="author" content="Erthalion" />
+		<meta name="robots" content="nofollow" />
+		<meta charset="UTF-8" />		
+		
+		<link rel="stylesheet" type="text/css" href="css/comments.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css?v=1" />
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-24190660-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+</head>
+	
+<body>
+	<div id="comments">
+		<ul>
+		{% for comment in comments %}
+			<li>
+				<div class="commentText">{{ comment.text|escape }}</div><br/>
+				<div class="commentUser"><i>{{ comment.user|escape }}</i></div>
+			</li>
+		{% endfor %}		
+		</ul>
+	</div>
+	<div id="send">
+		<form method="post" action="/comments">
+			<p><textarea rows="10" cols="45" name="text" id="textField" class="send ui-widget ui-widget-content ui-corner-all"></textarea></p>
+			<p><input type="text"  name="name" id="nameField" class="name ui-widget ui-widget-content ui-corner-all" title="Укажите ваше имя"></input></p>
+			<p><input type="submit" value="Send" title="Отправить комментарий"></p>
+		</form>
+		
+		<div id="smiles">
+			<ul>
+			</ul>
+			<div class="slider">
+			</div>
+		</div>
+	</div>
+</body>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+		<script src="js/comments.js"></script>
+		<script src="js/jquery.emotions.minify.js"></script>
+</html>

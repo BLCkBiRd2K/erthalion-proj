@@ -1,32 +1,19 @@
 # -*- coding: utf-8 -*-
 import cgi
 import os
-
 from google.appengine.ext.webapp import template
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
+#import models
+from models import Users
+from models import News
+from models import Comments
+from models import GHQuery
+
 types=["devices_and_cameras","error","interesting_directories","interesting_info","login_pages","misc","network_or_vulnerability_data","passwords_and_usernames","sql_injection_list","vulnerabilities","vulnerable_systems","webserver_banners"]
-
-class Users(db.Model):
-	name = db.StringProperty()
-	email = db.UserProperty()
-
-class News(db.Model):
-	name = db.StringProperty()
-	text = db.TextProperty()
-	date = db.DateTimeProperty()
-	
-class Comments(db.Model):
-	user = db.StringProperty()
-	text = db.TextProperty()
-	date = db.DateTimeProperty()
-	
-class GHQuery(db.Model):
-	query = db.StringProperty()
-	type = db.StringProperty()
 
 class GetType(webapp.RequestHandler):
 	def get(self):
@@ -99,7 +86,7 @@ class Osmosis(webapp.RequestHandler):
         template_values = {
           }
     
-        path = os.path.join(os.path.dirname(__file__), 'osmosis.html')
+        path = os.path.join(os.path.dirname(__file__), 'views/osmosis.html')
         self.response.out.write(template.render(path, template_values))
 
 class Commentary(webapp.RequestHandler):
@@ -119,7 +106,7 @@ class Commentary(webapp.RequestHandler):
 			'comments':comments
 		}
 		
-		path = os.path.join(os.path.dirname(__file__), 'comments.html')
+		path = os.path.join(os.path.dirname(__file__), 'views/comments.html')
 		self.response.out.write(template.render(path, template_values))
 
 class MainPage(webapp.RequestHandler):
@@ -131,7 +118,7 @@ class MainPage(webapp.RequestHandler):
 			'news':news,
 			}
 
-		path = os.path.join(os.path.dirname(__file__), 'index.html')
+		path = os.path.join(os.path.dirname(__file__), 'views/index.html')
 		self.response.out.write(template.render(path, template_values))
 
 class Video(webapp.RequestHandler):
@@ -139,7 +126,7 @@ class Video(webapp.RequestHandler):
 		template_values = {
 			}
 
-		path = os.path.join(os.path.dirname(__file__), 'video.html')
+		path = os.path.join(os.path.dirname(__file__), 'views/video.html')
 		self.response.out.write(template.render(path, template_values))
 
 
