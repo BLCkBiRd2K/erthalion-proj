@@ -17,6 +17,9 @@ handlers:
 - url: /favicon.ico
   static_files: /images/favicon.ico
   upload: /images/favicon.ico 
+- url: /yandex_6607f61067d93b44.txt
+  static_files: yandex_6607f61067d93b44.txt
+  upload: yandex_6607f61067d93b44.txt
 - url: /sitemap.xml
   static_files: sitemap.xml
   upload: sitemap.xml
@@ -24,3 +27,14 @@ handlers:
   static_dir: raphael
 - url: /.*
   script: index.py
+
+builtins:
+- datastore_admin: on
+- appstats: on
+
+inbound_services:
+- xmpp_message
+- mail
+
+error_handlers:
+- file: views/error.html
