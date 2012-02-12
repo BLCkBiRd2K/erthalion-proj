@@ -12,7 +12,7 @@ class News(db.Model):
 	date = db.DateTimeProperty()
 	
 class Comments(db.Model):
-	user = db.StringProperty()
+	user = db.TextProperty()
 	text = db.TextProperty()
 	date = db.DateTimeProperty()
 	

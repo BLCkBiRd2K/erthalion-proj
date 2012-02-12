@@ -82,12 +82,12 @@ class Del(webapp.RequestHandler):
 		db.delete(requests)
 
 class Osmosis(webapp.RequestHandler):
-    def get(self):
-        template_values = {
+	def get(self):
+		template_values = {
           }
-    
-        path = os.path.join(os.path.dirname(__file__), 'views/osmosis.html')
-        self.response.out.write(template.render(path, template_values))
+
+		path = os.path.join(os.path.dirname(__file__), 'views/osmosis.html')
+		self.response.out.write(template.render(path, template_values))
 
 class Commentary(webapp.RequestHandler):
 	def post(self):
@@ -107,10 +107,23 @@ class Commentary(webapp.RequestHandler):
 		}
 		
 		path = os.path.join(os.path.dirname(__file__), 'views/comments.html')
-		self.response.out.write(template.render(path, template_values))
+		
+		scripts = os.path.join(os.path.dirname(__file__), 'views/commentsScripts.html')
+
+		css = os.path.join(os.path.dirname(__file__), 'views/commentsCss.html')
+
+		content_values = {
+			'main':template.render(path, template_values),
+			'scripts':template.render(scripts, None),
+			'css':template.render(css, None),
+			}
+		
+		master=os.path.join(os.path.dirname(__file__), 'views/master.html')
+		
+		self.response.out.write(template.render(master, content_values))
 
 class MainPage(webapp.RequestHandler):
-    def get(self):
+	def get(self):
 		news_query = News.all().order('-date')
 		news = news_query.fetch(10)		
 
@@ -119,7 +132,19 @@ class MainPage(webapp.RequestHandler):
 			}
 
 		path = os.path.join(os.path.dirname(__file__), 'views/index.html')
-		self.response.out.write(template.render(path, template_values))
+
+		scripts = os.path.join(os.path.dirname(__file__), 'views/indexScripts.html')
+
+		css = os.path.join(os.path.dirname(__file__), 'views/indexCss.html')
+
+		content_values = {
+			'main':template.render(path, template_values),
+			'scripts':template.render(scripts, None),
+			'css':template.render(css, None),
+			}
+		
+		master=os.path.join(os.path.dirname(__file__), 'views/master.html')
+		self.response.out.write(template.render(master, content_values))
 
 class Video(webapp.RequestHandler):
 	def get(self):
@@ -144,7 +169,7 @@ application = webapp.WSGIApplication(
 									debug=True)
 
 def main():
-    run_wsgi_app(application)
+	run_wsgi_app(application)
 
 if __name__ == "__main__":
-    main()
+	main()

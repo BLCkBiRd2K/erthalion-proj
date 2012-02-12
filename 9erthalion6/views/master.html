@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Erthalion's site</title>
+		<meta name="description" content="Erthalion's site with HTML5. Here placed google hack database in xml and many others" />
+		<meta name="keywords" content="Erthalion GHDB HTML5" />
+		<meta name="author" content="Erthalion" />
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		{{ css }}
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-24190660-2']);
+			_gaq.push(['_trackPageview']); (function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<header id="head">
+				<a href="http://localhost:8080"> <img src="images/title.png"/> </a>
+			</header>
+			<section id="main-panel">
+				<div id="content">
+					{{ main }}
+				</div>
+				<aside id="links">
+					<h3>Интересное</h3>
+					<a href="/osmosis" title="Osmosis - простенькая игра, чтобы убить время">
+					<div id="osmosis-icon"><img src="images/osmosis_light.png" style="display:none">
+					</div></a>
+					<a href="/comments" title="Оставить комментарий">
+					<div id="comments-icon"><img src="images/comments_light.png" style="display:none">
+					</div></a>
+					<a href="/video" title="Движущиеся картинки">
+					<div id="video-icon"><img src="images/video_light.png" style="display:none">
+					</div></a>
+				</aside>
+			</section>
+		</div>
+		<footer id="footer">
+			<p>
+				&copy;Erthalion 2011
+			</p>
+		</footer>
+		<!--<canvas id="webwidget_html5_star_backgorund">
+		Internet Explorer Not Supported
+		</canvas>-->
+	</body>
+	<!--SCRIPTS SECTION-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	{{ scripts }}
+</html>

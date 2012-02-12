@@ -1,109 +1,133 @@
-.main-panel
-{
-	margin:0 auto;
-	color: #FFFFFF;
+html {
 	height: 100%;
-	position:absolute ! important;
-	width: 100%;
-	z-index:1001 ! important;
 }
-
+header, nav, section, article, aside, footer {
+	display: block;
+}
 body {
+	font: Arial, Tahoma, Verdana, sans-serif;
+	height: 100%;
 	background: #000;
-	margin:0;
-	padding:0;
-	overflow:hidden;
+	margin: 0px;
 }
-
-#head
-{
+#wrapper {
+	width: 100%;
+	min-width: 1000px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+#main-panel {
+	width: 100%;
+	padding: 0 0 50px;
+	height: 1%;
+	position: relative;
+}
+#main-panel:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#head {
 	text-align: center;
 }
-
-#links
-{
-	float: left;
-	width: 40%;
+#footer {
+	margin: -50px auto 0;
+	min-width: 100%;
+	height: 50px;
+	position: relative;
+	color: white;
+	text-align: center;
+	position: absolute;
+	/* Safari 4-5, Chrome 1-9 */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000000), to(#333333));
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(top, #000000, #333333);
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(top, #000000, #333333);
+	/* IE 10 */
+	background: -ms-linear-gradient(top, #000000, #333333);
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(top, #000000, #333333);
+	/*margin-top: -130px;
+	 position: relative;
+	 z-index:1001 ! important;*/
 }
-
-#links a
-{
+#links {
+	float: left;
+	width: 20%;
+}
+#content {
+	width: 80%;
+	float: right;
+	overflow: hidden;
+}
+#links a {
 	display: inline-block;
 	margin-left: 10px;
 	margin-right: 10px;
 }
-
-#news
-{
+#news {
 	float: right;
 	color: white;
 	width: 40%;
 }
-
-h3 
-{
+h2 {
+	color: white;
+}
+h3 {
 	background: #777777;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	text-align: center;
 	text-shadow: white 1px 1px 2px, white 0 0 1em; /* Параметры тени */
-    font-size: 1.5em; /* Размер надписи */
-    font-family: arial;
+	font-size: 1.5em; /* Размер надписи */
+	font-family: arial;
 }
-
-li 
-{
+li {
 	text-align: left;
 	font-family: arial;
 	color: #777777;
 }
-
-li:hover
-{
+li:hover {
 	background: #000000;
-	/*text-shadow: black 1px 1px 2px, red 0 0 1em;*/
 }
-
-#osmosis
-{
+#osmosis-icon {
 	width: 64px;
 	height: 64px;
 	background: url("../../images/osmosis.png");
 }
-
-#osmosis:hover
-{
+#osmosis-icon:hover {
 	width: 64px;
 	height: 64px;
 	cursor: pointer;
 	background: url("../../images/osmosis_light.png");
 }
-
-#comments
-{
+#comments-icon {
 	width: 64px;
 	height: 64px;
 	background: url("../../images/comments.png");
 }
-
-#comments:hover
-{
+#comments-icon:hover {
 	width: 64px;
 	height: 64px;
 	cursor: pointer;
 	background: url("../../images/comments_light.png");
 }
-
-#video
-{
+#video-icon {
 	width: 64px;
 	height: 50px;
-	margin-bottom:10px;
+	margin-bottom: 10px;
 	background: url("../../images/video.png");
 }
-
-#video:hover
-{
+#video-icon:hover {
 	cursor: pointer;
 	background: url("../../images/video_light.png");
+}
+#webwidget_html5_star_backgorund {
+	position: absolute;
+	top: 0;
+	z-index: 1001;
 }
